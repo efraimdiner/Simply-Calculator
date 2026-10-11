@@ -1,0 +1,11 @@
+# הגדרות לניסיון מול פורטל הדמה (python -m mock_portal.app). אין בו מידע אמיתי.
+
+[portal]
+start_url = "http://127.0.0.1:8100/"
+allowed_domains = ["127.0.0.1"]
+
+[agent]
+approval_mode = "ask_all"
+
+[browser]
+profile_dir = "browser-profile-demo"

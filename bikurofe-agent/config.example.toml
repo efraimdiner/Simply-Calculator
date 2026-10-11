@@ -1,0 +1,29 @@
+# הגדרות סוכן המשמרת.
+# העתק את הקובץ הזה לקובץ בשם config.toml ומלא את כתובת הפורטל.
+
+[portal]
+# הדף שבו הסוכן מתחיל, כלומר הדף שאתה פותח בתחילת משמרת
+start_url = "https://REPLACE-WITH-PORTAL-ADDRESS/"
+# הסוכן יפעל רק בדומיינים האלה (כולל תת-דומיינים). רשימה ריקה = רק הדומיין של start_url
+allowed_domains = []
+
+[agent]
+model = "claude-opus-5-5"
+# עומק החשיבה של המודל: low / medium / high. ככל שגבוה יותר, איטי ויקר יותר
+effort = "medium"
+# מספר הצעדים המקסימלי למשימה אחת
+max_steps = 80
+# ask_all     = שואל על כל פעולה (מומלץ להתחלה)
+# ask_changes = מנווט וקורא לבד, שואל לפני כל לחיצה, הקלדה או שמירה
+# autonomous  = לא שואל (נשאר ביומן ואפשר לעצור בכל רגע)
+approval_mode = "ask_all"
+
+[browser]
+headless = false
+# "chrome" = להשתמש בגוגל כרום שמותקן במחשב במקום בכרומיום של Playwright
+channel = ""
+profile_dir = "browser-profile"
+
+[server]
+host = "127.0.0.1"
+port = 8000

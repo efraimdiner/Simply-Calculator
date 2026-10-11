@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>סוכן משמרת</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">✚</span>
+      <div>
+        <h1>סוכן משמרת – ביקורופא</h1>
+        <div class="sub">כל פעולה בפורטל עוברת דרכך</div>
+      </div>
+    </div>
+    <div class="controls">
+      <span id="status" class="pill">מתחבר…</span>
+      <label class="mode">
+        מצב עבודה
+        <select id="mode"></select>
+      </label>
+      <button id="notify-btn" class="btn ghost" type="button">🔔 הפעל התראות</button>
+      <button id="stop-btn" class="btn danger" type="button" disabled>■ עצור</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section id="pending" class="card pending hidden" aria-live="assertive"></section>
+
+    <section class="col">
+      <div class="card">
+        <h2>משימה חדשה</h2>
+        <form id="task-form">
+          <label for="playbook">תסריט שמור (לא חובה)</label>
+          <select id="playbook"><option value="">— בלי תסריט —</option></select>
+          <label for="instructions">מה לעשות?</label>
+          <textarea id="instructions" rows="4" placeholder="לדוגמה: עבור על הקריאות החדשות ותציע שיבוץ רופא לכל אחת"></textarea>
+          <div class="row">
+            <button id="start-btn" class="btn primary" type="submit">▶ התחל משימה</button>
+            <button id="open-portal" class="btn ghost" type="button">פתח את הפורטל (להתחברות)</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>הערה לסוכן תוך כדי עבודה</h2>
+        <form id="note-form" class="row">
+          <input id="note" type="text" placeholder="לדוגמה: דלג על קריאות מאילת" autocomplete="off">
+          <button class="btn" type="submit">שלח</button>
+        </form>
+      </div>
+
+      <div class="card log-card">
+        <div class="card-head">
+          <h2>יומן פעולות</h2>
+          <label class="small"><input id="show-thinking" type="checkbox"> הצג חשיבה</label>
+        </div>
+        <ol id="log" class="log"></ol>
+      </div>
+    </section>
+
+    <section class="col">
+      <div class="card">
+        <div class="card-head">
+          <h2>מה הסוכן רואה עכשיו</h2>
+          <button id="refresh-btn" class="btn ghost small" type="button">↻ רענן</button>
+        </div>
+        <a id="live-link" href="/api/screenshot" target="_blank" rel="noopener">
+          <img id="live" alt="צילום מסך של הפורטל" class="shot">
+        </a>
+        <p id="live-empty" class="muted">עדיין אין צילום מסך.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
