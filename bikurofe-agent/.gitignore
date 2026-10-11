@@ -1,0 +1,7 @@
+config.toml
+portal_notes.md
+browser-profile*/
+logs/
+.venv/
+__pycache__/
+.pytest_cache/
